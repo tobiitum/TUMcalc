@@ -18,6 +18,7 @@ public class calc extends JFrame{
     private JTextField textField5;
     private JTextField textField6;
     private JTextField textField7;
+    private JButton calculateButton;
     String comboBoxListe[] = {"Informatik", "TUM-BWL","Aerospace"};
 
     public static void main() {
