@@ -70,6 +70,7 @@
         </constraints>
         <properties>
           <model>
+            <item value="set"/>
             <item value="Aerospace"/>
             <item value="Architektur"/>
             <item value="Informatik"/>
@@ -613,6 +614,7 @@
                 </constraints>
                 <properties>
                   <model>
+                    <item value="set"/>
                     <item value="1,0"/>
                     <item value="1,1"/>
                     <item value="1,2"/>
@@ -804,12 +806,12 @@
           <grid row="1" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="v.0.2"/>
+          <text value="v.0.2.5"/>
         </properties>
       </component>
-      <component id="8e360" class="javax.swing.JLabel" binding="inst">
+      <component id="16e89" class="javax.swing.JLabel" binding="inst">
         <constraints>
-          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Set the major first!"/>

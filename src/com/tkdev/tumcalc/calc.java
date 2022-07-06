@@ -390,6 +390,7 @@ public class calc extends JFrame{
         clearButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                mappe.setText("");
                 mathe1.setText("");
                 mathe2.setText("");
                 mathe3.setText("");
@@ -437,6 +438,7 @@ public class calc extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 setButton.doClick();
                 inst.setText("");
+                comboBox1.removeItem("set");
             }
         });
         helpButton.addActionListener(new ActionListener() {
@@ -457,10 +459,13 @@ public class calc extends JFrame{
                 if (!(abitext.getText() == "Punkte")){
                     int abinote = 10+6*Integer.parseInt(abitext.getText());
                 if (comboBox1.getSelectedItem() == "Aerospace"){
+                    if (mathfi.getText() == ""){mathfi.setText(String.valueOf(Integer.parseInt(mathe1.getText()) + Integer.parseInt(mathe2.getText()) + Integer.parseInt(mathe3.getText()) + Integer.parseInt(mathe4.getText())/5));}
                     int mathe0 = 10+6*((Integer.parseInt(mathe1.getText()) + Integer.parseInt(mathe2.getText()) + Integer.parseInt(mathe3.getText()) + Integer.parseInt(mathe4.getText()) + Integer.parseInt(mathfi.getText()))/5);
                     int mathe = mathe0 * 3;
+                    if (englischfi.getText() == ""){englischfi.setText(String.valueOf(Integer.parseInt(eng1.getText()) + Integer.parseInt(eng2.getText()) + Integer.parseInt(eng3.getText()) + Integer.parseInt(eng4.getText())/5));}
                     int englisch = 10+6*((Integer.parseInt(eng1.getText()) + Integer.parseInt(eng2.getText()) + Integer.parseInt(eng3.getText()) + Integer.parseInt(eng4.getText()) + Integer.parseInt(englischfi.getText()))/5);
                     if (!(info1.getText() =="")){
+                        if (infofi.getText() == ""){infofi.setText(String.valueOf(Integer.parseInt(info1.getText()) + Integer.parseInt(info2.getText()) + Integer.parseInt(info3.getText()) + Integer.parseInt(info4.getText())/5));}
                         int informatik01 = 10+6*((Integer.parseInt(info1.getText()) + Integer.parseInt(info2.getText()) + Integer.parseInt(info3.getText()) + Integer.parseInt(info4.getText()) + Integer.parseInt(infofi.getText()))/5);
                         int informatik02 = informatik01*2;
                         int result0 = (mathe+englisch+informatik02)/6;
@@ -480,6 +485,7 @@ public class calc extends JFrame{
                         }
                     }
                     else{ if (!(bio1.getText() =="")){
+                        if (biofi.getText() == ""){biofi.setText(String.valueOf(Integer.parseInt(bio1.getText()) + Integer.parseInt(bio2.getText()) + Integer.parseInt(bio3.getText()) + Integer.parseInt(bio4.getText())/5));}
                         int bio0 = 10+6*((Integer.parseInt(bio1.getText()) + Integer.parseInt(bio2.getText()) + Integer.parseInt(bio3.getText()) + Integer.parseInt(bio4.getText()) + Integer.parseInt(biofi.getText()))/5);
                         int bio = bio0*2;
                         int result0 = (mathe+englisch+bio)/6;
@@ -499,6 +505,7 @@ public class calc extends JFrame{
                         }
                     }else {
                         if (!(chemie1.getText() == "")) {
+                            if (chemiefi.getText() == ""){chemie1.setText(String.valueOf(Integer.parseInt(chemie1.getText()) + Integer.parseInt(chemie2.getText()) + Integer.parseInt(chemie3.getText()) + Integer.parseInt(chemie4.getText())/5));}
                             int chemie0 = 10+6*((Integer.parseInt(chemie1.getText()) + Integer.parseInt(chemie2.getText()) + Integer.parseInt(chemie3.getText()) + Integer.parseInt(chemie4.getText()) + Integer.parseInt(chemiefi.getText()))/5);
                             int chemie = chemie0 * 2;
                             int result0 = (mathe+englisch+chemie)/6;
@@ -518,6 +525,7 @@ public class calc extends JFrame{
                             }
                         } else {
                             if (!(physik1.getText() == "")) {
+                                if (physikfi.getText() == ""){physikfi.setText(String.valueOf(Integer.parseInt(physik1.getText()) + Integer.parseInt(physik2.getText()) + Integer.parseInt(physik3.getText()) + Integer.parseInt(physik4.getText())/5));}
                                 int physik0 = 10+6*((Integer.parseInt(physik1.getText()) + Integer.parseInt(physik2.getText()) + Integer.parseInt(physik3.getText()) + Integer.parseInt(physik4.getText()) + Integer.parseInt(physikfi.getText()))/5);
                                 int physik = physik0 * 2;
                                 int result0 = (mathe+englisch+physik)/6;
@@ -542,33 +550,47 @@ public class calc extends JFrame{
 
                 }
                 if (comboBox1.getSelectedItem() == "Architektur") {
-                    int mathe0 = 10+6*((Integer.parseInt(mathe1.getText()) + Integer.parseInt(mathe2.getText()) + Integer.parseInt(mathe3.getText()) + Integer.parseInt(mathe4.getText()) + Integer.parseInt(mathfi.getText()))/5);
-                    int mathe = mathe0 * 2;
-                    int englisch = 10+6*((Integer.parseInt(eng1.getText()) + Integer.parseInt(eng2.getText()) + Integer.parseInt(eng3.getText()) + Integer.parseInt(eng4.getText()) + Integer.parseInt(englischfi.getText()))/5);
-                    int deutsch = 10+6*((Integer.parseInt(deutsch1.getText()) + Integer.parseInt(deutsch2.getText()) + Integer.parseInt(deutsch3.getText()) + Integer.parseInt(deutschfi.getText()) + Integer.parseInt(deutsch4.getText()))/5);
-                    int kunst0 = 10+6*((Integer.parseInt(kunst1.getText()) + Integer.parseInt(kunst2.getText()) + Integer.parseInt(kunst3.getText()) + Integer.parseInt(kunst4.getText()) + Integer.parseInt(kunstfi.getText()))/5);
-                    int kunst = kunst0*3;
-                    int result0 = (mathe+englisch+deutsch+kunst)/7;
-                    int result = (int) (0.55*abinote+0.25*result0+0.2*Integer.parseInt(mappe.getText()));
-                    resulttext.setText(String.valueOf(result));
-                    if (result >= Integer.parseInt(direct.getText())){
-                        ending.setText("Zugelassen");
-                        ending.setForeground(Color.GREEN);
+                    if (!(mappe.getText() == "")) {
+                        if (mathfi.getText() == ""){mathfi.setText(String.valueOf(Integer.parseInt(mathe1.getText()) + Integer.parseInt(mathe2.getText()) + Integer.parseInt(mathe3.getText()) + Integer.parseInt(mathe4.getText())/5));}
+                        int mathe0 = 10 + 6 * ((Integer.parseInt(mathe1.getText()) + Integer.parseInt(mathe2.getText()) + Integer.parseInt(mathe3.getText()) + Integer.parseInt(mathe4.getText()) + Integer.parseInt(mathfi.getText())) / 5);
+                        int mathe = mathe0 * 2;
+                        if (englischfi.getText() == ""){englischfi.setText(String.valueOf(Integer.parseInt(eng1.getText()) + Integer.parseInt(eng2.getText()) + Integer.parseInt(eng3.getText()) + Integer.parseInt(eng4.getText())/5));}
+                        int englisch = 10 + 6 * ((Integer.parseInt(eng1.getText()) + Integer.parseInt(eng2.getText()) + Integer.parseInt(eng3.getText()) + Integer.parseInt(eng4.getText()) + Integer.parseInt(englischfi.getText())) / 5);
+                        int deutsch = 10 + 6 * ((Integer.parseInt(deutsch1.getText()) + Integer.parseInt(deutsch2.getText()) + Integer.parseInt(deutsch3.getText()) + Integer.parseInt(deutschfi.getText()) + Integer.parseInt(deutsch4.getText())) / 5);
+                        if (kunstfi.getText() == ""){kunstfi.setText(String.valueOf(Integer.parseInt(kunst1.getText()) + Integer.parseInt(kunst2.getText()) + Integer.parseInt(kunst3.getText()) + Integer.parseInt(kunst4.getText())/5));}
+                        int kunst0 = 10 + 6 * ((Integer.parseInt(kunst1.getText()) + Integer.parseInt(kunst2.getText()) + Integer.parseInt(kunst3.getText()) + Integer.parseInt(kunst4.getText()) + Integer.parseInt(kunstfi.getText())) / 5);
+                        int kunst = kunst0 * 3;
+                        int result0 = (mathe + englisch + deutsch + kunst) / 7;
+                        int result = (int) (0.55 * abinote + 0.25 * result0 + 0.2 * Integer.parseInt(mappe.getText()));
+                        resulttext.setText(String.valueOf(result));
+                        if (result >= Integer.parseInt(direct.getText())) {
+                            ending.setText("Zugelassen");
+                            ending.setForeground(Color.GREEN);
+                        }
+                        if (Integer.parseInt(direct.getText()) > result && result >= Integer.parseInt(second.getText())) {
+                            ending.setText("Zweite Stufe");
+                            ending.setForeground(Color.YELLOW);
+                        }
+                        if (result < Integer.parseInt(second.getText())) {
+                            ending.setText("Abgelehnt");
+                            ending.setForeground(Color.RED);
+                        }
                     }
-                    if (Integer.parseInt(direct.getText()) > result && result >= Integer.parseInt(second.getText())){
-                        ending.setText("Zweite Stufe");
-                        ending.setForeground(Color.YELLOW);
-                    }
-                    if (result < Integer.parseInt(second.getText())) {
-                        ending.setText("Abgelehnt");
-                        ending.setForeground(Color.RED);
+                    else{
+                        JOptionPane.showMessageDialog(frame,
+                                "Bitte lege die (vorraussichtlichte) Note für die Mappe fest!",
+                                "Warning",
+                                JOptionPane.WARNING_MESSAGE);
                     }
                 }
                     if (comboBox1.getSelectedItem() == "Informatik") {
+                        if (mathfi.getText() == ""){mathfi.setText(String.valueOf(Integer.parseInt(mathe1.getText()) + Integer.parseInt(mathe2.getText()) + Integer.parseInt(mathe3.getText()) + Integer.parseInt(mathe4.getText())/5));}
                         int mathe0 = 10+6*((Integer.parseInt(mathe1.getText()) + Integer.parseInt(mathe2.getText()) + Integer.parseInt(mathe3.getText()) + Integer.parseInt(mathe4.getText()) + Integer.parseInt(mathfi.getText()))/5);
                         int mathe = mathe0 * 3;
+                        if (englischfi.getText() == ""){englischfi.setText(String.valueOf(Integer.parseInt(eng1.getText()) + Integer.parseInt(eng2.getText()) + Integer.parseInt(eng3.getText()) + Integer.parseInt(eng4.getText())/5));}
                         int englisch = 10+6*((Integer.parseInt(eng1.getText()) + Integer.parseInt(eng2.getText()) + Integer.parseInt(eng3.getText()) + Integer.parseInt(eng4.getText()) + Integer.parseInt(englischfi.getText()))/5);
                         int deutsch = 10+6*((Integer.parseInt(deutsch1.getText()) + Integer.parseInt(deutsch2.getText()) + Integer.parseInt(deutsch3.getText()) + Integer.parseInt(deutschfi.getText()) + Integer.parseInt(deutsch4.getText()))/5);
+                        if (infofi.getText() == ""){infofi.setText(String.valueOf(Integer.parseInt(info1.getText()) + Integer.parseInt(info2.getText()) + Integer.parseInt(info3.getText()) + Integer.parseInt(info4.getText())/5));}
                         int informatik01 = 10+6*((Integer.parseInt(info1.getText()) + Integer.parseInt(info2.getText()) + Integer.parseInt(info3.getText()) + Integer.parseInt(info4.getText()) + Integer.parseInt(infofi.getText()))/5);
                         int informatik02 = informatik01*2;
                         int result0 = (mathe+englisch+deutsch+informatik02)/7;
@@ -588,11 +610,14 @@ public class calc extends JFrame{
                         }
                     }
                     if (comboBox1.getSelectedItem() == "TUM-BWL"){
+                        if (mathfi.getText() == ""){mathfi.setText(String.valueOf(Integer.parseInt(mathe1.getText()) + Integer.parseInt(mathe2.getText()) + Integer.parseInt(mathe3.getText()) + Integer.parseInt(mathe4.getText())/5));}
                         int mathe0 = 10+6*((Integer.parseInt(mathe1.getText()) + Integer.parseInt(mathe2.getText()) + Integer.parseInt(mathe3.getText()) + Integer.parseInt(mathe4.getText()) + Integer.parseInt(mathfi.getText()))/5);
                         int mathe = mathe0 * 2;
+                        if (englischfi.getText() == ""){englischfi.setText(String.valueOf(Integer.parseInt(eng1.getText()) + Integer.parseInt(eng2.getText()) + Integer.parseInt(eng3.getText()) + Integer.parseInt(eng4.getText())/5));}
                         int englisch = 10+6*((Integer.parseInt(eng1.getText()) + Integer.parseInt(eng2.getText()) + Integer.parseInt(eng3.getText()) + Integer.parseInt(eng4.getText()) + Integer.parseInt(englischfi.getText()))/5);
                         int deutsch = 10+6*((Integer.parseInt(deutsch1.getText()) + Integer.parseInt(deutsch2.getText()) + Integer.parseInt(deutsch3.getText()) + Integer.parseInt(deutschfi.getText()) + Integer.parseInt(deutsch4.getText()))/5);
                         if (!(info1.getText() =="")){
+                            if (infofi.getText() == ""){infofi.setText(String.valueOf(Integer.parseInt(info1.getText()) + Integer.parseInt(info2.getText()) + Integer.parseInt(info3.getText()) + Integer.parseInt(info4.getText())/5));}
                             int informatik01 = 10+6*((Integer.parseInt(info1.getText()) + Integer.parseInt(info2.getText()) + Integer.parseInt(info3.getText()) + Integer.parseInt(info4.getText()) + Integer.parseInt(infofi.getText()))/5);
                             int informatik02 = informatik01*2;
                             int result0 = (mathe+englisch+deutsch+informatik02)/6;
@@ -612,6 +637,7 @@ public class calc extends JFrame{
                             }
                         }
                         else{ if (!(bio1.getText() =="")){
+                            if (biofi.getText() == ""){biofi.setText(String.valueOf(Integer.parseInt(bio1.getText()) + Integer.parseInt(bio2.getText()) + Integer.parseInt(bio3.getText()) + Integer.parseInt(bio4.getText())/5));}
                             int bio0 = 10+6*((Integer.parseInt(bio1.getText()) + Integer.parseInt(bio2.getText()) + Integer.parseInt(bio3.getText()) + Integer.parseInt(bio4.getText()) + Integer.parseInt(biofi.getText()))/5);
                             int bio = bio0*2;
                             int result0 = (mathe+englisch+deutsch+bio)/6;
@@ -631,6 +657,7 @@ public class calc extends JFrame{
                             }
                         }else {
                             if (!(chemie1.getText() == "")) {
+                                if (chemiefi.getText() == ""){chemie1.setText(String.valueOf(Integer.parseInt(chemie1.getText()) + Integer.parseInt(chemie2.getText()) + Integer.parseInt(chemie3.getText()) + Integer.parseInt(chemie4.getText())/5));}
                                 int chemie0 = 10+6*((Integer.parseInt(chemie1.getText()) + Integer.parseInt(chemie2.getText()) + Integer.parseInt(chemie3.getText()) + Integer.parseInt(chemie4.getText()) + Integer.parseInt(chemiefi.getText()))/5);
                                 int chemie = chemie0 * 2;
                                 int result0 = (mathe+englisch+deutsch+chemie)/6;
@@ -650,6 +677,7 @@ public class calc extends JFrame{
                                 }
                             } else {
                                 if (!(physik1.getText() == "")) {
+                                    if (physikfi.getText() == ""){physikfi.setText(String.valueOf(Integer.parseInt(physik1.getText()) + Integer.parseInt(physik2.getText()) + Integer.parseInt(physik3.getText()) + Integer.parseInt(physik4.getText())/5));}
                                     int physik0 = 10+6*((Integer.parseInt(physik1.getText()) + Integer.parseInt(physik2.getText()) + Integer.parseInt(physik3.getText()) + Integer.parseInt(physik4.getText()) + Integer.parseInt(physikfi.getText()))/5);
                                     int physik = physik0 * 2;
                                     int result0 = (mathe+englisch+deutsch+physik)/6;
@@ -684,6 +712,8 @@ public class calc extends JFrame{
         comboBox2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                comboBox2.removeItem("set");
+
                 if (comboBox2.getSelectedItem() == "1,0" || comboBox2.getSelectedItem() == "1,1"){
                     abitext.setText("15");
                 }
